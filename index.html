@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Tilt Adventures</title>
-  <style>
-    body { font-family: Arial; margin: 0; line-height: 1.6; }
-    header { background: #111; color: white; padding: 60px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 2.5em; }
-    section { padding: 40px 20px; max-width: 900px; margin: auto; }
-    .services { display: flex; gap: 20px; flex-wrap: wrap; }
-    .card { flex: 1; min-width: 250px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
-    footer { background: #111; color: white; text-align: center; padding: 20px; }
-    .btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #007BFF; color: white; text-decoration: none; border-radius: 5px; }
-  </style>
-</head>
+
+  <header style="
+  background-image: url('header.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+  position: relative;
+">
+  
+  <!-- dark overlay so text is readable -->
+  <div style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+  "></div>
+
+  <div style="position: relative;">
+    <h1 style="font-size: 3em; margin: 0;">Full Tilt Adventures</h1>
+    <p style="font-size: 1.3em;">Cinematic Outdoor & Event Videography</p>
+    <p>Hunting • Fishing • Weddings • Adventure Films</p>
+  </div>
+
+</header>
 
 <body>
 
