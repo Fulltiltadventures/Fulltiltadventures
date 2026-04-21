@@ -1,96 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Tilt Adventures</title>
 
-  <header style="
-  background-image: url('header.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 120px 20px;
-  text-align: center;
-  position: relative;
-">
-  
-  <!-- dark overlay so text is readable -->
-  <div style="
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-  "></div>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+    }
 
-  <div style="position: relative;">
-    <h1 style="font-size: 3em; margin: 0;">Full Tilt Adventures</h1>
-    <p style="font-size: 1.3em;">Cinematic Outdoor & Event Videography</p>
-    <p>Hunting • Fishing • Weddings • Adventure Films</p>
-  </div>
+    header.hero {
+      background-image: url('header.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 140px 20px;
+      text-align: center;
+      position: relative;
+    }
 
-</header>
+    header.hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.55);
+    }
+
+    header.hero .content {
+      position: relative;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .services {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 250px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
 
 <body>
 
-<header>
-  <h1>Full Tilt Adventures</h1>
-  <p>Adventure & Outdoor Videography</p>
-  <p>Hunting • Fishing • Weddings • Custom Projects</p>
-  <a class="btn" href="#contact">Get a Quote</a>
+<!-- HERO SECTION -->
+<header class="hero">
+  <div class="content">
+    <h1>Full Tilt Adventures</h1>
+    <p>Cinematic Outdoor & Event Videography</p>
+    <p>Hunting • Fishing • Weddings • Adventure Films</p>
+    <a class="btn" href="#contact">Get a Quote</a>
+  </div>
 </header>
 
+<!-- ABOUT -->
 <section>
   <h2>About Us</h2>
-  <p>We specialize in capturing real moments in the outdoors and beyond. At Full Tilt Adventures, we provide professional videography for hunting trips, fishing excursions, weddings, and unforgettable adventures of all kinds. Our goal is simple: document your experience with high-quality, cinematic footage so you can relive it for years to come. Whether you’re in the field, on the water, or celebrating a once-in-a-lifetime event, we make sure every moment is captured the right way.</p>
-<h2>Why Choose Us</h2>
-<p>We understand the timing, patience, and unpredictability of outdoor environments. That means we’re ready to capture the moments that matter—without getting in the way of your experience.</p>
+  <p>
+    We specialize in capturing real moments in the outdoors and beyond. At Full Tilt Adventures, we provide professional videography for hunting trips, fishing excursions, weddings, and unforgettable adventures of all kinds. Our goal is simple: document your experience with high-quality, cinematic footage so you can relive it for years to come.
+  </p>
+
+  <h2>Why Choose Us</h2>
+  <p>
+    We understand the timing, patience, and unpredictability of outdoor environments. That means we’re ready to capture the moments that matter—without getting in the way of your experience.
+  </p>
 </section>
 
+<!-- SERVICES -->
 <section>
   <h2>Services</h2>
+
   <div class="services">
     <div class="card">
-      <h3>Hunting videography</h3>
-      <p>We document hunts with a cinematic approach, capturing everything from setup and strategy to the decisive moments in the field. Ideal for personal memories, storytelling, or content sharing.</p>
+      <h3>Hunting Videography</h3>
+      <p>We document hunts with a cinematic approach, capturing setup, strategy, and key moments in the field.</p>
     </div>
+
     <div class="card">
-      <h3>Adventure and Outdoor filming</h3>
-      <p>Fishing trips, hiking, off-grid expeditions, and extreme outdoor experiences are filmed using a combination of drone, action, and cinematic camera work to create a dynamic story of your adventure.</p>
+      <h3>Adventure & Outdoor Filming</h3>
+      <p>Fishing, hiking, and off-grid expeditions filmed using drone, action, and cinematic camera work.</p>
     </div>
+
     <div class="card">
-      <h3>Wedding and event videography</h3>
-      <p>We provide natural, documentary-style wedding and event videography that focuses on real emotion, movement, and atmosphere—delivered as a polished cinematic film.</p>
+      <h3>Wedding & Event Videography</h3>
+      <p>Natural, documentary-style filming focused on real emotion and storytelling.</p>
     </div>
   </div>
 </section>
 
+<!-- EQUIPMENT -->
 <section>
   <h2>Cinematic Production Standards</h2>
 
   <p>
-    We use professional-grade filmmaking equipment to ensure every project meets cinematic standards. Our gear is selected specifically for outdoor environments where lighting, movement, and conditions are constantly changing.
+    We use professional-grade filmmaking equipment to ensure cinematic quality in every environment.
   </p>
 
   <ul>
-    <li><strong>Sony A7S III</strong> – High-performance cinema camera for low-light and high-detail shooting</li>
-    <li><strong>Drone Cinematography</strong> – Aerial footage for scale, landscape, and dynamic movement shots</li>
-    <li><strong>Action Cameras (GoPro-style)</strong> – First-person and immersive POV capture for real-time action</li>
-    <li><strong>Professional Editing in DaVinci Resolve</strong> – Color-graded cinematic storytelling and polished final delivery</li>
+    <li><strong>Sony A7S III</strong> – Cinematic low-light camera system</li>
+    <li><strong>Drone Cinematography</strong> – Aerial storytelling and landscape capture</li>
+    <li><strong>Action Cameras</strong> – Immersive POV and movement shots</li>
+    <li><strong>DaVinci Resolve</strong> – Professional color grading and editing</li>
   </ul>
-
-  <p>
-    This combination allows us to capture both wide cinematic scenes and close, high-action moments seamlessly, creating a complete visual story from every shoot.
-  </p>
 </section>
-  
+
+<!-- CONTACT -->
 <section id="contact">
-  <h2>Contact Ryan Preston</h2>
+  <h2>Contact Full Tilt Adventures</h2>
   <p>Email: full_tilt_audio@hotmail.com</p>
-  <p>Phone: Call or text (541) 377-3825</p>
+  <p>Phone: (541) 377-3825</p>
   <p>Serving Eastern OR and surrounding areas</p>
 </section>
 
 <footer>
-  <p>© 2023 Full tilt Adventures </p>
+  <p>© 2023 Full Tilt Adventures</p>
 </footer>
 
 </body>
