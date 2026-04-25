@@ -5,64 +5,92 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Full Tilt Adventures</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+:root {
+  --gold: #d4af37;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: #0a0a0a;
-  color: #eee;
+  color: white;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 /* HERO */
 .hero {
   height: 100vh;
-  background: url('Header.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
-.hero::before {
-  content: "";
+.hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.65);
 }
 
 .hero-content {
   position: relative;
-  max-width: 700px;
+  z-index: 2;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .hero h1 {
   font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  opacity: 0.85;
 }
 
 .btn {
+  background: var(--gold);
+  padding: 12px 28px;
+  border-radius: 30px;
+  color: black;
+  text-decoration: none;
   display: inline-block;
   margin-top: 20px;
-  padding: 12px 28px;
-  background: #d4af37;
-  color: #000;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
 }
 
-/* SECTION */
+/* SECTIONS */
 section {
-  padding: 80px 20px;
-  max-width: 1000px;
+  padding: 90px 20px;
+  max-width: 1100px;
   margin: auto;
 }
 
@@ -71,11 +99,15 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* GRID */
+.grid {
+  display: grid;
+  gap: 25px;
+}
+
 /* SERVICES */
 .services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
 }
 
 .card {
@@ -88,145 +120,196 @@ h2 {
 
 .card:hover {
   transform: translateY(-5px);
-  border-color: #d4af37;
+  border-color: var(--gold);
+}
+
+/* PORTFOLIO */
+.portfolio {
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+}
+
+.portfolio iframe {
+  width: 100%;
+  height: 220px;
+  border-radius: 10px;
+}
+
+/* PRICING */
+.pricing {
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+}
+
+.price-card {
+  border: 1px solid #333;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.price {
+  font-size: 2rem;
+  color: var(--gold);
+}
+
+/* ARTICLES */
+.articles a {
+  display: block;
+  padding: 12px;
+  border-bottom: 1px solid #222;
+  color: var(--gold);
+  text-decoration: none;
 }
 
 /* FORM */
-form {
-  display: flex;
-  flex-direction: column;
-}
-
 input, textarea {
-  margin-bottom: 15px;
+  width: 100%;
   padding: 12px;
-  border-radius: 5px;
-  border: none;
+  margin-bottom: 12px;
   background: #111;
+  border: none;
   color: white;
 }
 
 button {
   padding: 12px;
-  background: #d4af37;
+  background: var(--gold);
   border: none;
-  font-weight: bold;
   cursor: pointer;
 }
 
-/* SUCCESS MESSAGE */
 #success {
   display: none;
-  margin-top: 20px;
-  color: #4caf50;
+  color: lightgreen;
 }
 
-/* FOOTER */
-footer {
-  background: #000;
-  text-align: center;
-  padding: 30px;
-  font-size: 0.9rem;
-  opacity: 0.6;
+/* ANIMATION */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 1s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
+<nav>
+  <div class="logo">Full Tilt Adventures</div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Work</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#articles">Articles</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
 <!-- HERO -->
 <section class="hero">
+  <video autoplay muted loop>
+    <source src="hero.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
   <div class="hero-content">
     <h1>Full Tilt Adventures</h1>
     <p>Cinematic Outdoor & Event Videography</p>
-    <p>Hunting • Fishing • Weddings • Adventure Films</p>
-    <a href="#contact" class="btn">Get a Quote</a>
+    <a href="#contact" class="btn">Start Your Project</a>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section>
-  <h2>About Us</h2>
+<section id="about" class="fade">
+  <h2>About</h2>
   <p>
-    At Full Tilt Adventures, we specialize in capturing real, unscripted moments in the outdoors and beyond. From remote hunting trips to weddings and once-in-a-lifetime experiences, we create cinematic films that let you relive every detail for years to come.
-  </p>
-
-  <h2>Why Choose Us</h2>
-  <p>
-    Outdoor environments are unpredictable—timing matters. We understand how to operate in those moments without interfering, capturing authentic footage as it naturally unfolds.
+    We specialize in capturing real moments in the outdoors—hunting, fishing, weddings, and adventure experiences—with cinematic precision and storytelling.
   </p>
 </section>
 
 <!-- SERVICES -->
-<section>
+<section id="services" class="fade">
   <h2>Services</h2>
 
-  <div class="services">
-    <div class="card">
-      <h3>Hunting Videography</h3>
-      <p>Cinematic storytelling of your hunt—capturing preparation, strategy, and the moments that matter most.</p>
+  <div class="grid services">
+    <div class="card">Hunting Videography</div>
+    <div class="card">Adventure Filming</div>
+    <div class="card">Weddings & Events</div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="fade">
+  <h2>Portfolio</h2>
+
+  <div class="grid portfolio">
+    <iframe src="https://www.youtube.com/embed/7Ckwz5fhfKE"></iframe>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="fade">
+  <h2>Pricing</h2>
+
+  <div class="grid pricing">
+    <div class="price-card">
+      <h3>Basic</h3>
+      <p class="price">$500+</p>
+      <p>Short event coverage</p>
     </div>
 
-    <div class="card">
-      <h3>Adventure Filming</h3>
-      <p>Fishing, hiking, and off-grid expeditions filmed with drones, action cameras, and cinematic gear.</p>
+    <div class="price-card">
+      <h3>Standard</h3>
+      <p class="price">$1200+</p>
+      <p>Half-day shoot + edit</p>
     </div>
 
-    <div class="card">
-      <h3>Wedding & Events</h3>
-      <p>Documentary-style filming focused on genuine emotion and storytelling—not staged moments.</p>
+    <div class="price-card">
+      <h3>Premium</h3>
+      <p class="price">$2500+</p>
+      <p>Full cinematic production</p>
     </div>
   </div>
 </section>
 
-<!-- EQUIPMENT -->
-<section>
-  <h2>Production Standards</h2>
-  <p>We use professional-grade equipment to ensure cinematic quality in every environment.</p>
+<!-- ARTICLES -->
+<section id="articles" class="fade">
+  <h2>Articles</h2>
 
-  <ul>
-    <li>Sony A7S III – Cinematic low-light performance</li>
-    <li>Drone Cinematography – Aerial storytelling</li>
-    <li>Action Cameras – Immersive POV footage</li>
-    <li>DaVinci Resolve – Professional color grading</li>
-  </ul>
+  <div class="articles">
+    <a href="articles/article1.html">Why Consistency Wins</a>
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="fade">
   <h2>Start Your Project</h2>
 
-  <form id="contact-form" action="https://formsubmit.co/full_tilt_audio@hotmail.com" method="POST">
-    
-    <input type="hidden" name="_subject" value="New Client Inquiry - Full Tilt Adventures">
+  <form id="form" action="https://formsubmit.co/full_tilt_audio@hotmail.com" method="POST">
     <input type="hidden" name="_captcha" value="false">
 
-    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="text" name="name" placeholder="Name" required>
     <input type="text" name="contact" placeholder="Email or Phone" required>
-    <textarea name="message" rows="5" placeholder="Tell me about your project..."></textarea>
+    <textarea name="message" placeholder="Tell me about your project"></textarea>
 
-    <button type="submit">Get a Quote</button>
+    <button type="submit">Send Request</button>
 
-    <div id="success">✅ Your message has been sent. I’ll get back to you soon.</div>
+    <div id="success">Message sent. I’ll be in touch soon.</div>
   </form>
-
-  <p style="margin-top:20px;">
-    Direct Contact:<br>
-    full_tilt_audio@hotmail.com<br>
-    (541) 377-3825
-  </p>
 </section>
 
-<footer>
-  <p>© 2026 Full Tilt Adventures</p>
-</footer>
-
-<!-- SCRIPT: SUCCESS MESSAGE -->
 <script>
-const form = document.getElementById('contact-form');
-const success = document.getElementById('success');
+/* FORM */
+const form = document.getElementById("form");
+const success = document.getElementById("success");
 
-form.addEventListener('submit', function(e) {
+form.addEventListener("submit", function(e){
   e.preventDefault();
 
   fetch(form.action, {
@@ -235,8 +318,18 @@ form.addEventListener('submit', function(e) {
   }).then(() => {
     success.style.display = "block";
     form.reset();
-  }).catch(() => {
-    alert("Something went wrong. Please try again.");
+  });
+});
+
+/* SCROLL ANIMATION */
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('show');
+    }
   });
 });
 </script>
