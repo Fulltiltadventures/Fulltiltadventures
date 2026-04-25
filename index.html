@@ -27,7 +27,7 @@ nav{
   width:100%;
   display:flex;
   justify-content:space-between;
-  padding:14px 30px;
+  padding:14px 25px;
   background:rgba(0,0,0,0.55);
   backdrop-filter:blur(12px);
   z-index:999;
@@ -35,37 +35,35 @@ nav{
 
 nav a{
   color:#fff;
-  margin-left:18px;
+  margin-left:15px;
   text-decoration:none;
   font-size:14px;
 }
 
 .logo{
   font-weight:600;
-  letter-spacing:1px;
 }
 
-/* HERO */
+/* HERO (FIXED MOBILE CROPPING) */
 .hero{
   height:100vh;
   position:relative;
   overflow:hidden;
+  background:black;
 }
 
-/* 🎬 HERO VIDEO (FIXED FOR MOBILE CROPPING) */
+/* KEY FIX: prevents aggressive cropping on phones */
 .hero video{
   position:absolute;
   top:50%;
   left:50%;
-  width:auto;
+  width:100%;
   height:100%;
-  min-width:100%;
-  min-height:100%;
-  transform:translate(-50%,-50%);
   object-fit:cover;
+  transform:translate(-50%,-50%);
 }
 
-/* fallback image if video doesn't load */
+/* fallback image */
 .hero::before{
   content:"";
   position:absolute;
@@ -91,7 +89,7 @@ nav a{
 }
 
 .hero h1{
-  font-size:clamp(28px,5vw,60px);
+  font-size:clamp(28px,6vw,60px);
   margin:0;
 }
 
@@ -108,42 +106,16 @@ nav a{
 
 /* SECTIONS */
 section{
-  padding:90px 20px;
+  padding:80px 20px;
   max-width:1100px;
   margin:auto;
 }
 
-h2{
-  margin-bottom:20px;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  gap:20px;
-}
-
-/* SERVICES */
-.services{
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-}
-
-.card{
-  background:#111;
-  padding:25px;
-  border-radius:10px;
-  border:1px solid #222;
-  transition:.3s;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-  border-color:var(--gold);
-}
-
 /* PORTFOLIO */
 .portfolio{
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
 }
 
 .video-card{
@@ -170,7 +142,6 @@ h2{
 
 .video-info h3{
   margin:0;
-  font-size:16px;
 }
 
 .video-info p{
@@ -182,7 +153,7 @@ h2{
 .lightbox{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.9);
+  background:rgba(0,0,0,0.92);
   display:none;
   align-items:center;
   justify-content:center;
@@ -190,55 +161,27 @@ h2{
 }
 
 .lightbox iframe{
-  width:90%;
+  width:92%;
   height:80%;
   max-width:1000px;
 }
 
-/* PRICING */
-.pricing{
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-}
+/* MOBILE FIXES */
+@media (max-width:768px){
 
-.price-card{
-  border:1px solid #333;
-  padding:30px;
-  border-radius:10px;
-  text-align:center;
-}
+  nav{
+    flex-wrap:wrap;
+    gap:10px;
+  }
 
-.price{
-  font-size:2rem;
-  color:var(--gold);
-}
+  .video-card iframe{
+    height:180px;
+  }
 
-/* CONTACT */
-input,textarea{
-  width:100%;
-  padding:12px;
-  margin-bottom:10px;
-  background:#111;
-  border:none;
-  color:#fff;
-}
-
-button{
-  background:var(--gold);
-  padding:12px;
-  border:none;
-  cursor:pointer;
-}
-
-#success{
-  display:none;
-  color:lightgreen;
-}
-
-/* MOBILE FIX */
-@media(max-width:768px){
   .hero video{
+    width:100%;
     height:100%;
-    width:auto;
+    object-fit:cover;
   }
 }
 </style>
@@ -250,9 +193,7 @@ button{
 <nav>
   <div class="logo">Full Tilt Adventures</div>
   <div>
-    <a href="#portfolio">Work</a>
-    <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
+    <a href="#portfolio">Portfolio</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -266,27 +207,18 @@ button{
   <div class="hero-content">
     <h1>Full Tilt Adventures</h1>
     <p>Cinematic Outdoor & Event Videography</p>
-    <a href="#contact" class="btn">Start Your Project</a>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <h2>Services</h2>
-
-  <div class="grid services">
-    <div class="card">Hunting Films</div>
-    <div class="card">Adventure Cinematography</div>
-    <div class="card">Weddings & Events</div>
+    <a href="#portfolio" class="btn">View Work</a>
   </div>
 </section>
 
 <!-- PORTFOLIO -->
 <section id="portfolio">
+
   <h2>Portfolio</h2>
 
-  <div class="grid portfolio">
+  <div class="portfolio">
 
+    <!-- ORIGINAL VIDEO -->
     <div class="video-card" onclick="openVideo('7Ckwz5fhfKE')">
       <iframe loading="lazy" src="https://www.youtube.com/embed/7Ckwz5fhfKE"></iframe>
       <div class="video-info">
@@ -295,11 +227,21 @@ button{
       </div>
     </div>
 
-    <div class="video-card" onclick="openVideo('2YLksBYcFn4')">
-      <iframe loading="lazy" src="https://www.youtube.com/embed/2YLksBYcFn4"></iframe>
+    <!-- NEW VIDEO 1 -->
+    <div class="video-card" onclick="openVideo('K3NTW6vsrT0')">
+      <iframe loading="lazy" src="https://www.youtube.com/embed/K3NTW6vsrT0"></iframe>
       <div class="video-info">
-        <h3>Field Production</h3>
-        <p>Real-world cinematic capture</p>
+        <h3>Field Session</h3>
+        <p>Outdoor cinematic capture</p>
+      </div>
+    </div>
+
+    <!-- NEW VIDEO 2 -->
+    <div class="video-card" onclick="openVideo('VmdjHFpwNAI')">
+      <iframe loading="lazy" src="https://www.youtube.com/embed/VmdjHFpwNAI"></iframe>
+      <div class="video-info">
+        <h3>Wildlife / Action</h3>
+        <p>High-intensity field production</p>
       </div>
     </div>
 
@@ -310,47 +252,6 @@ button{
 <div class="lightbox" id="lightbox" onclick="closeVideo()">
   <iframe id="lightboxFrame"></iframe>
 </div>
-
-<!-- PRICING -->
-<section id="pricing">
-  <h2>Pricing</h2>
-
-  <div class="grid pricing">
-    <div class="price-card">
-      <h3>Basic</h3>
-      <p class="price">$500+</p>
-      <p>Short coverage</p>
-    </div>
-
-    <div class="price-card">
-      <h3>Standard</h3>
-      <p class="price">$1200+</p>
-      <p>Half-day production</p>
-    </div>
-
-    <div class="price-card">
-      <h3>Premium</h3>
-      <p class="price">$2500+</p>
-      <p>Full cinematic film</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Contact</h2>
-
-  <form id="form" action="https://formsubmit.co/full_tilt_audio@hotmail.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-
-    <input name="name" placeholder="Name" required>
-    <input name="contact" placeholder="Email or Phone" required>
-    <textarea name="message" placeholder="Tell me about your project"></textarea>
-
-    <button type="submit">Send</button>
-    <div id="success">Message sent successfully.</div>
-  </form>
-</section>
 
 <script>
 function openVideo(id){
@@ -363,22 +264,6 @@ function closeVideo(){
   document.getElementById("lightbox").style.display="none";
   document.getElementById("lightboxFrame").src="";
 }
-
-/* FORM */
-const form=document.getElementById("form");
-const success=document.getElementById("success");
-
-form.addEventListener("submit",function(e){
-  e.preventDefault();
-
-  fetch(form.action,{
-    method:"POST",
-    body:new FormData(form)
-  }).then(()=>{
-    success.style.display="block";
-    form.reset();
-  });
-});
 </script>
 
 </body>
