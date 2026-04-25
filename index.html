@@ -10,13 +10,12 @@
 <style>
 :root{
   --gold:#d4af37;
-  --bg:#0a0a0a;
 }
 
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:var(--bg);
+  background:#0a0a0a;
   color:#fff;
   overflow-x:hidden;
 }
@@ -29,7 +28,7 @@ nav{
   display:flex;
   justify-content:space-between;
   padding:14px 30px;
-  background:rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.55);
   backdrop-filter:blur(12px);
   z-index:999;
 }
@@ -43,6 +42,7 @@ nav a{
 
 .logo{
   font-weight:600;
+  letter-spacing:1px;
 }
 
 /* HERO */
@@ -52,7 +52,7 @@ nav a{
   overflow:hidden;
 }
 
-/* 🔥 MOBILE-SAFE VIDEO FIX */
+/* 🎬 HERO VIDEO (FIXED FOR MOBILE CROPPING) */
 .hero video{
   position:absolute;
   top:50%;
@@ -60,8 +60,18 @@ nav a{
   width:auto;
   height:100%;
   min-width:100%;
+  min-height:100%;
   transform:translate(-50%,-50%);
   object-fit:cover;
+}
+
+/* fallback image if video doesn't load */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('Header.jpg') center/cover no-repeat;
+  z-index:-2;
 }
 
 .hero::after{
@@ -82,6 +92,7 @@ nav a{
 
 .hero h1{
   font-size:clamp(28px,5vw,60px);
+  margin:0;
 }
 
 .btn{
@@ -130,17 +141,16 @@ h2{
   border-color:var(--gold);
 }
 
-/* 🎬 PORTFOLIO (UPGRADED) */
+/* PORTFOLIO */
 .portfolio{
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 }
 
 .video-card{
-  position:relative;
-  cursor:pointer;
+  background:#111;
   border-radius:12px;
   overflow:hidden;
-  background:#111;
+  cursor:pointer;
   transition:.3s;
 }
 
@@ -202,15 +212,6 @@ h2{
   color:var(--gold);
 }
 
-/* ARTICLES */
-.articles a{
-  display:block;
-  padding:12px;
-  border-bottom:1px solid #222;
-  color:var(--gold);
-  text-decoration:none;
-}
-
 /* CONTACT */
 input,textarea{
   width:100%;
@@ -233,20 +234,11 @@ button{
   color:lightgreen;
 }
 
-/* MOBILE FIXES */
+/* MOBILE FIX */
 @media(max-width:768px){
-  nav{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
   .hero video{
     height:100%;
     width:auto;
-  }
-
-  .video-card iframe{
-    height:180px;
   }
 }
 </style>
@@ -268,7 +260,7 @@ button{
 <!-- HERO -->
 <section class="hero">
   <video autoplay muted loop playsinline>
-    <source src="hero.mp4" type="video/mp4">
+    <source src="Hero.mp4" type="video/mp4">
   </video>
 
   <div class="hero-content">
@@ -295,7 +287,6 @@ button{
 
   <div class="grid portfolio">
 
-    <!-- VIDEO 1 -->
     <div class="video-card" onclick="openVideo('7Ckwz5fhfKE')">
       <iframe loading="lazy" src="https://www.youtube.com/embed/7Ckwz5fhfKE"></iframe>
       <div class="video-info">
@@ -304,12 +295,11 @@ button{
       </div>
     </div>
 
-    <!-- VIDEO 2 (YOUR NEW ONE) -->
     <div class="video-card" onclick="openVideo('2YLksBYcFn4')">
       <iframe loading="lazy" src="https://www.youtube.com/embed/2YLksBYcFn4"></iframe>
       <div class="video-info">
         <h3>Field Production</h3>
-        <p>Real-world adventure capture</p>
+        <p>Real-world cinematic capture</p>
       </div>
     </div>
 
@@ -318,7 +308,7 @@ button{
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeVideo()">
-  <iframe id="lightboxFrame" src=""></iframe>
+  <iframe id="lightboxFrame"></iframe>
 </div>
 
 <!-- PRICING -->
@@ -335,13 +325,13 @@ button{
     <div class="price-card">
       <h3>Standard</h3>
       <p class="price">$1200+</p>
-      <p>Half-day cinematic shoot</p>
+      <p>Half-day production</p>
     </div>
 
     <div class="price-card">
       <h3>Premium</h3>
       <p class="price">$2500+</p>
-      <p>Full production package</p>
+      <p>Full cinematic film</p>
     </div>
   </div>
 </section>
@@ -363,17 +353,15 @@ button{
 </section>
 
 <script>
-
-/* LIGHTBOX VIDEO */
 function openVideo(id){
-  document.getElementById('lightbox').style.display='flex';
-  document.getElementById('lightboxFrame').src =
+  document.getElementById("lightbox").style.display="flex";
+  document.getElementById("lightboxFrame").src =
   "https://www.youtube.com/embed/" + id + "?autoplay=1";
 }
 
 function closeVideo(){
-  document.getElementById('lightbox').style.display='none';
-  document.getElementById('lightboxFrame').src='';
+  document.getElementById("lightbox").style.display="none";
+  document.getElementById("lightboxFrame").src="";
 }
 
 /* FORM */
@@ -391,7 +379,6 @@ form.addEventListener("submit",function(e){
     form.reset();
   });
 });
-
 </script>
 
 </body>
