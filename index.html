@@ -1,102 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Tilt Adventures</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Tilt Adventures</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      line-height: 1.6;
-    }
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    header.hero {
-      background-image: url('Header.jpg');
-      background-size: cover;
-      background-position: center 30%;
-      color: white;
-      padding: 140px 20px;
-      text-align: center;
-      position: relative;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a0a;
+  color: #eee;
+}
 
-    header.hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.55);
-    }
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url('Header.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
 
-    header.hero .content {
-      position: relative;
-    }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
 
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+.hero-content {
+  position: relative;
+  max-width: 700px;
+}
 
-    .services {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
 
-    .card {
-      flex: 1;
-      min-width: 250px;
-      border: 1px solid #ddd;
-      padding: 20px;
-      border-radius: 8px;
-    }
+.hero p {
+  opacity: 0.85;
+}
 
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: #d4af37;
+  color: #000;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+}
 
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #007BFF;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-  </style>
+/* SECTION */
+section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* SERVICES */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #111;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #222;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #d4af37;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea {
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  background: #111;
+  color: white;
+}
+
+button {
+  padding: 12px;
+  background: #d4af37;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* SUCCESS MESSAGE */
+#success {
+  display: none;
+  margin-top: 20px;
+  color: #4caf50;
+}
+
+/* FOOTER */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 30px;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+</style>
 </head>
 
 <body>
 
-<!-- HERO SECTION -->
-<header class="hero">
-  <div class="content">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
     <h1>Full Tilt Adventures</h1>
     <p>Cinematic Outdoor & Event Videography</p>
     <p>Hunting • Fishing • Weddings • Adventure Films</p>
-    <a class="btn" href="#contact">Get a Quote</a>
+    <a href="#contact" class="btn">Get a Quote</a>
   </div>
-</header>
+</section>
 
 <!-- ABOUT -->
 <section>
   <h2>About Us</h2>
   <p>
-    We specialize in capturing real moments in the outdoors and beyond. At Full Tilt Adventures, we provide professional videography for hunting trips, fishing excursions, weddings, and unforgettable adventures of all kinds. Our goal is simple: document your experience with high-quality, cinematic footage so you can relive it for years to come.
+    At Full Tilt Adventures, we specialize in capturing real, unscripted moments in the outdoors and beyond. From remote hunting trips to weddings and once-in-a-lifetime experiences, we create cinematic films that let you relive every detail for years to come.
   </p>
 
   <h2>Why Choose Us</h2>
   <p>
-    We understand the timing, patience, and unpredictability of outdoor environments. That means we’re ready to capture the moments that matter—without getting in the way of your experience.
+    Outdoor environments are unpredictable—timing matters. We understand how to operate in those moments without interfering, capturing authentic footage as it naturally unfolds.
   </p>
 </section>
 
@@ -107,69 +164,82 @@
   <div class="services">
     <div class="card">
       <h3>Hunting Videography</h3>
-      <p>We document hunts with a cinematic approach, capturing setup, strategy, and key moments in the field.</p>
+      <p>Cinematic storytelling of your hunt—capturing preparation, strategy, and the moments that matter most.</p>
     </div>
 
     <div class="card">
-      <h3>Adventure & Outdoor Filming</h3>
-      <p>Fishing, hiking, and off-grid expeditions filmed using drone, action, and cinematic camera work.</p>
+      <h3>Adventure Filming</h3>
+      <p>Fishing, hiking, and off-grid expeditions filmed with drones, action cameras, and cinematic gear.</p>
     </div>
 
     <div class="card">
-      <h3>Wedding & Event Videography</h3>
-      <p>Natural, documentary-style filming focused on real emotion and storytelling.</p>
+      <h3>Wedding & Events</h3>
+      <p>Documentary-style filming focused on genuine emotion and storytelling—not staged moments.</p>
     </div>
   </div>
 </section>
 
 <!-- EQUIPMENT -->
 <section>
-  <h2>Cinematic Production Standards</h2>
-
-  <p>
-    We use professional-grade filmmaking equipment to ensure cinematic quality in every environment.
-  </p>
+  <h2>Production Standards</h2>
+  <p>We use professional-grade equipment to ensure cinematic quality in every environment.</p>
 
   <ul>
-    <li><strong>Sony A7S III</strong> – Cinematic low-light camera system</li>
-    <li><strong>Drone Cinematography</strong> – Aerial storytelling and landscape capture</li>
-    <li><strong>Action Cameras</strong> – Immersive POV and movement shots</li>
-    <li><strong>DaVinci Resolve</strong> – Professional color grading and editing</li>
+    <li>Sony A7S III – Cinematic low-light performance</li>
+    <li>Drone Cinematography – Aerial storytelling</li>
+    <li>Action Cameras – Immersive POV footage</li>
+    <li>DaVinci Resolve – Professional color grading</li>
   </ul>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <h2>Contact Full Tilt Adventures</h2>
+  <h2>Start Your Project</h2>
 
-  <form action="https://formsubmit.co/full_tilt_audio@hotmail.com" method="POST">
+  <form id="contact-form" action="https://formsubmit.co/full_tilt_audio@hotmail.com" method="POST">
     
     <input type="hidden" name="_subject" value="New Client Inquiry - Full Tilt Adventures">
     <input type="hidden" name="_captcha" value="false">
 
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="text" name="contact" placeholder="Email or Phone" required>
+    <textarea name="message" rows="5" placeholder="Tell me about your project..."></textarea>
 
-    <label for="contact">Email or Phone:</label><br>
-    <input type="text" id="contact" name="contact" required><br><br>
+    <button type="submit">Get a Quote</button>
 
-    <label for="message">Project Details:</label><br>
-    <textarea id="message" name="message" rows="5"></textarea><br><br>
-
-    <button type="submit" class="btn">Get a Quote</button>
-
+    <div id="success">✅ Your message has been sent. I’ll get back to you soon.</div>
   </form>
 
   <p style="margin-top:20px;">
-    Or contact directly:<br>
-    Email: full_tilt_audio@hotmail.com<br>
-    Phone: (541) 377-3825
+    Direct Contact:<br>
+    full_tilt_audio@hotmail.com<br>
+    (541) 377-3825
   </p>
 </section>
 
 <footer>
-  <p>© 2023 Full Tilt Adventures</p>
+  <p>© 2026 Full Tilt Adventures</p>
 </footer>
+
+<!-- SCRIPT: SUCCESS MESSAGE -->
+<script>
+const form = document.getElementById('contact-form');
+const success = document.getElementById('success');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form)
+  }).then(() => {
+    success.style.display = "block";
+    form.reset();
+  }).catch(() => {
+    alert("Something went wrong. Please try again.");
+  });
+});
+</script>
 
 </body>
 </html>
