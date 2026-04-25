@@ -8,190 +8,246 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --gold: #d4af37;
+:root{
+  --gold:#d4af37;
+  --bg:#0a0a0a;
 }
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #0a0a0a;
-  color: white;
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:#fff;
+  overflow-x:hidden;
 }
 
 /* NAV */
-nav {
-  position: fixed;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 40px;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:14px 30px;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(12px);
+  z-index:999;
 }
 
-nav a {
-  color: white;
-  margin-left: 20px;
-  text-decoration: none;
+nav a{
+  color:#fff;
+  margin-left:18px;
+  text-decoration:none;
+  font-size:14px;
 }
 
-.logo {
-  font-weight: 600;
-  letter-spacing: 1px;
+.logo{
+  font-weight:600;
 }
 
 /* HERO */
-.hero {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
+.hero{
+  height:100vh;
+  position:relative;
+  overflow:hidden;
 }
 
-.hero video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
+/* 🔥 MOBILE-SAFE VIDEO FIX */
+.hero video{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:auto;
+  height:100%;
+  min-width:100%;
+  transform:translate(-50%,-50%);
+  object-fit:cover;
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
+.hero-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  top:50%;
+  transform:translateY(-50%);
+  padding:0 20px;
 }
 
-.hero h1 {
-  font-size: 3rem;
+.hero h1{
+  font-size:clamp(28px,5vw,60px);
 }
 
-.btn {
-  background: var(--gold);
-  padding: 12px 28px;
-  border-radius: 30px;
-  color: black;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 20px;
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  background:var(--gold);
+  color:#000;
+  padding:12px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
 }
 
 /* SECTIONS */
-section {
-  padding: 90px 20px;
-  max-width: 1100px;
-  margin: auto;
+section{
+  padding:90px 20px;
+  max-width:1100px;
+  margin:auto;
 }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+h2{
+  margin-bottom:20px;
 }
 
 /* GRID */
-.grid {
-  display: grid;
-  gap: 25px;
+.grid{
+  display:grid;
+  gap:20px;
 }
 
 /* SERVICES */
-.services {
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+.services{
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 }
 
-.card {
-  background: #111;
-  padding: 25px;
-  border-radius: 10px;
-  border: 1px solid #222;
-  transition: 0.3s;
+.card{
+  background:#111;
+  padding:25px;
+  border-radius:10px;
+  border:1px solid #222;
+  transition:.3s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  border-color: var(--gold);
+.card:hover{
+  transform:translateY(-6px);
+  border-color:var(--gold);
 }
 
-/* PORTFOLIO */
-.portfolio {
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+/* 🎬 PORTFOLIO (UPGRADED) */
+.portfolio{
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 }
 
-.portfolio iframe {
-  width: 100%;
-  height: 220px;
-  border-radius: 10px;
+.video-card{
+  position:relative;
+  cursor:pointer;
+  border-radius:12px;
+  overflow:hidden;
+  background:#111;
+  transition:.3s;
+}
+
+.video-card:hover{
+  transform:scale(1.03);
+}
+
+.video-card iframe{
+  width:100%;
+  height:200px;
+  border:none;
+}
+
+.video-info{
+  padding:12px;
+}
+
+.video-info h3{
+  margin:0;
+  font-size:16px;
+}
+
+.video-info p{
+  font-size:13px;
+  opacity:0.7;
+}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+
+.lightbox iframe{
+  width:90%;
+  height:80%;
+  max-width:1000px;
 }
 
 /* PRICING */
-.pricing {
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+.pricing{
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 }
 
-.price-card {
-  border: 1px solid #333;
-  padding: 30px;
-  border-radius: 10px;
-  text-align: center;
+.price-card{
+  border:1px solid #333;
+  padding:30px;
+  border-radius:10px;
+  text-align:center;
 }
 
-.price {
-  font-size: 2rem;
-  color: var(--gold);
+.price{
+  font-size:2rem;
+  color:var(--gold);
 }
 
 /* ARTICLES */
-.articles a {
-  display: block;
-  padding: 12px;
-  border-bottom: 1px solid #222;
-  color: var(--gold);
-  text-decoration: none;
+.articles a{
+  display:block;
+  padding:12px;
+  border-bottom:1px solid #222;
+  color:var(--gold);
+  text-decoration:none;
 }
 
-/* FORM */
-input, textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  background: #111;
-  border: none;
-  color: white;
+/* CONTACT */
+input,textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:10px;
+  background:#111;
+  border:none;
+  color:#fff;
 }
 
-button {
-  padding: 12px;
-  background: var(--gold);
-  border: none;
-  cursor: pointer;
+button{
+  background:var(--gold);
+  padding:12px;
+  border:none;
+  cursor:pointer;
 }
 
-#success {
-  display: none;
-  color: lightgreen;
+#success{
+  display:none;
+  color:lightgreen;
 }
 
-/* ANIMATION */
-.fade {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 1s;
-}
+/* MOBILE FIXES */
+@media(max-width:768px){
+  nav{
+    flex-direction:column;
+    align-items:flex-start;
+  }
 
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
+  .hero video{
+    height:100%;
+    width:auto;
+  }
+
+  .video-card iframe{
+    height:180px;
+  }
 }
 </style>
 </head>
@@ -202,21 +258,18 @@ button {
 <nav>
   <div class="logo">Full Tilt Adventures</div>
   <div>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
     <a href="#portfolio">Work</a>
+    <a href="#services">Services</a>
     <a href="#pricing">Pricing</a>
-    <a href="#articles">Articles</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <video autoplay muted loop>
-    <source src="Hero.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline>
+    <source src="hero.mp4" type="video/mp4">
   </video>
-  <div class="overlay"></div>
 
   <div class="hero-content">
     <h1>Full Tilt Adventures</h1>
@@ -225,115 +278,120 @@ button {
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="fade">
-  <h2>About</h2>
-  <p>
-    We specialize in capturing real moments in the outdoors—hunting, fishing, weddings, and adventure experiences—with cinematic precision and storytelling.
-  </p>
-</section>
-
 <!-- SERVICES -->
-<section id="services" class="fade">
+<section id="services">
   <h2>Services</h2>
 
   <div class="grid services">
-    <div class="card">Hunting Videography</div>
-    <div class="card">Adventure Filming</div>
+    <div class="card">Hunting Films</div>
+    <div class="card">Adventure Cinematography</div>
     <div class="card">Weddings & Events</div>
   </div>
 </section>
 
 <!-- PORTFOLIO -->
-<section id="portfolio" class="fade">
+<section id="portfolio">
   <h2>Portfolio</h2>
 
   <div class="grid portfolio">
-    <iframe src="https://www.youtube.com/embed/7Ckwz5fhfKE"></iframe>
-    <iframe src="https://www.youtube.com/embed/2YLksBYcFn4" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/K3NTW6vsrT0" allowfullscreen></iframe>
+
+    <!-- VIDEO 1 -->
+    <div class="video-card" onclick="openVideo('7Ckwz5fhfKE')">
+      <iframe loading="lazy" src="https://www.youtube.com/embed/7Ckwz5fhfKE"></iframe>
+      <div class="video-info">
+        <h3>Adventure Film</h3>
+        <p>Cinematic outdoor storytelling</p>
+      </div>
+    </div>
+
+    <!-- VIDEO 2 (YOUR NEW ONE) -->
+    <div class="video-card" onclick="openVideo('2YLksBYcFn4')">
+      <iframe loading="lazy" src="https://www.youtube.com/embed/2YLksBYcFn4"></iframe>
+      <div class="video-info">
+        <h3>Field Production</h3>
+        <p>Real-world adventure capture</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeVideo()">
+  <iframe id="lightboxFrame" src=""></iframe>
+</div>
+
 <!-- PRICING -->
-<section id="pricing" class="fade">
+<section id="pricing">
   <h2>Pricing</h2>
 
   <div class="grid pricing">
     <div class="price-card">
       <h3>Basic</h3>
       <p class="price">$500+</p>
-      <p>Short event coverage</p>
+      <p>Short coverage</p>
     </div>
 
     <div class="price-card">
       <h3>Standard</h3>
       <p class="price">$1200+</p>
-      <p>Half-day shoot + edit</p>
+      <p>Half-day cinematic shoot</p>
     </div>
 
     <div class="price-card">
       <h3>Premium</h3>
       <p class="price">$2500+</p>
-      <p>Full cinematic production</p>
+      <p>Full production package</p>
     </div>
   </div>
 </section>
 
-<!-- ARTICLES -->
-<section id="articles" class="fade">
-  <h2>Articles</h2>
-
-  <div class="articles">
-    <a href="articles/article1.html">Why Consistency Wins</a>
-  </div>
-</section>
-
 <!-- CONTACT -->
-<section id="contact" class="fade">
-  <h2>Start Your Project</h2>
+<section id="contact">
+  <h2>Contact</h2>
 
   <form id="form" action="https://formsubmit.co/full_tilt_audio@hotmail.com" method="POST">
     <input type="hidden" name="_captcha" value="false">
 
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="text" name="contact" placeholder="Email or Phone" required>
+    <input name="name" placeholder="Name" required>
+    <input name="contact" placeholder="Email or Phone" required>
     <textarea name="message" placeholder="Tell me about your project"></textarea>
 
-    <button type="submit">Send Request</button>
-
-    <div id="success">Message sent. I’ll be in touch soon.</div>
+    <button type="submit">Send</button>
+    <div id="success">Message sent successfully.</div>
   </form>
 </section>
 
 <script>
-/* FORM */
-const form = document.getElementById("form");
-const success = document.getElementById("success");
 
-form.addEventListener("submit", function(e){
+/* LIGHTBOX VIDEO */
+function openVideo(id){
+  document.getElementById('lightbox').style.display='flex';
+  document.getElementById('lightboxFrame').src =
+  "https://www.youtube.com/embed/" + id + "?autoplay=1";
+}
+
+function closeVideo(){
+  document.getElementById('lightbox').style.display='none';
+  document.getElementById('lightboxFrame').src='';
+}
+
+/* FORM */
+const form=document.getElementById("form");
+const success=document.getElementById("success");
+
+form.addEventListener("submit",function(e){
   e.preventDefault();
 
-  fetch(form.action, {
-    method: "POST",
-    body: new FormData(form)
-  }).then(() => {
-    success.style.display = "block";
+  fetch(form.action,{
+    method:"POST",
+    body:new FormData(form)
+  }).then(()=>{
+    success.style.display="block";
     form.reset();
   });
 });
 
-/* SCROLL ANIMATION */
-const faders = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll', () => {
-  faders.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      el.classList.add('show');
-    }
-  });
-});
 </script>
 
 </body>
