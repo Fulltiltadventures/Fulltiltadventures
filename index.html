@@ -141,9 +141,30 @@
 <!-- CONTACT -->
 <section id="contact">
   <h2>Contact Full Tilt Adventures</h2>
-  <p>Email: full_tilt_audio@hotmail.com</p>
-  <p>Phone: (541) 377-3825</p>
-  <p>Serving Eastern OR and surrounding areas</p>
+
+  <form action="https://formsubmit.co/full_tilt_audio@hotmail.com" method="POST">
+    
+    <input type="hidden" name="_subject" value="New Client Inquiry - Full Tilt Adventures">
+    <input type="hidden" name="_captcha" value="false">
+
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="contact">Email or Phone:</label><br>
+    <input type="text" id="contact" name="contact" required><br><br>
+
+    <label for="message">Project Details:</label><br>
+    <textarea id="message" name="message" rows="5"></textarea><br><br>
+
+    <button type="submit" class="btn">Get a Quote</button>
+
+  </form>
+
+  <p style="margin-top:20px;">
+    Or contact directly:<br>
+    Email: full_tilt_audio@hotmail.com<br>
+    Phone: (541) 377-3825
+  </p>
 </section>
 
 <footer>
