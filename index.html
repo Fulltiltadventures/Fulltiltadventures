@@ -51,6 +51,7 @@ nav a{
   height:100vh;
   position:relative;
   overflow:hidden;
+  background:#000;
 }
 
 .hero video{
@@ -63,6 +64,7 @@ nav a{
   transform:translate(-50%,-50%);
 }
 
+/* DARK OVERLAY */
 .hero::after{
   content:"";
   position:absolute;
@@ -214,10 +216,26 @@ button{
   margin-top:10px;
 }
 
-/* MOBILE */
+/* MOBILE FIX */
 @media(max-width:768px){
-  nav{justify-content:center;text-align:center;}
-  nav a{font-size:13px;}
+
+  nav{
+    justify-content:center;
+    text-align:center;
+  }
+
+  nav a{
+    font-size:13px;
+  }
+
+  /* 🔥 THIS FIXES YOUR VIDEO CROPPING */
+  .hero video{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#000;
+  }
+
 }
 </style>
 </head>
@@ -242,32 +260,9 @@ button{
   </video>
 
   <div class="hero-content">
-    <h1>Cinematic Films for Real People & Real Adventures</h1>
-    <p>Hunts. Businesses. Weddings. We turn real moments into films worth watching.</p>
+    <h1>Live It Full Tilt. We’ll Capture It.</h1>
+    <p>Hunts. Adventures. Businesses. We turn real experiences into cinematic films worth reliving.</p>
     <a href="#contact" class="btn">Book Your Project</a>
-  </div>
-</section>
-
-<!-- WHO IT'S FOR -->
-<section>
-  <h2>Who This Is For</h2>
-  <div class="grid services">
-
-    <div class="card">
-      <h3>Hunters & Outdoorsmen</h3>
-      <p>Capture your hunts without ruining the experience.</p>
-    </div>
-
-    <div class="card">
-      <h3>Local Businesses</h3>
-      <p>Content that actually brings in customers.</p>
-    </div>
-
-    <div class="card">
-      <h3>Weddings & Events</h3>
-      <p>Relive your biggest moments through film.</p>
-    </div>
-
   </div>
 </section>
 
@@ -279,14 +274,13 @@ button{
 
     <div class="card">
       <h3>Hunting Films</h3>
-      <p>Document your hunt from start to finish.</p>
+      <p>Document your hunt from start to finish without getting in the way.</p>
       <ul>
         <li>Full hunt coverage</li>
         <li>Shot & recovery storytelling</li>
         <li>Camp & gear footage</li>
         <li>Cinematic edit</li>
       </ul>
-      <p><strong>Starting at $600</strong></p>
     </div>
 
     <div class="card">
@@ -297,7 +291,6 @@ button{
         <li>Family adventures</li>
         <li>Highlight reels</li>
       </ul>
-      <p><strong>Starting at $400</strong></p>
     </div>
 
     <div class="card">
@@ -308,7 +301,6 @@ button{
         <li>Reception highlights</li>
         <li>Story-driven edit</li>
       </ul>
-      <p><strong>Starting at $1,200</strong></p>
     </div>
 
     <div class="card">
@@ -319,7 +311,6 @@ button{
         <li>Social media clips</li>
         <li>Brand storytelling</li>
       </ul>
-      <p><strong>Starting at $500</strong></p>
     </div>
 
   </div>
@@ -333,30 +324,22 @@ button{
 
     <div class="video-card" onclick="openVideo('7Ckwz5fhfKE')">
       <iframe src="https://www.youtube.com/embed/7Ckwz5fhfKE"></iframe>
-      <div class="video-info">
-        <h3>Adventure Film</h3>
-      </div>
+      <div class="video-info"><h3>Adventure Film</h3></div>
     </div>
 
     <div class="video-card" onclick="openVideo('2YLksBYcFn4')">
       <iframe src="https://www.youtube.com/embed/2YLksBYcFn4"></iframe>
-      <div class="video-info">
-        <h3>Field Production</h3>
-      </div>
+      <div class="video-info"><h3>Field Production</h3></div>
     </div>
 
     <div class="video-card" onclick="openVideo('K3NTW6vsrT0')">
       <iframe src="https://www.youtube.com/embed/K3NTW6vsrT0"></iframe>
-      <div class="video-info">
-        <h3>Wedding Film</h3>
-      </div>
+      <div class="video-info"><h3>Wedding Film</h3></div>
     </div>
 
     <div class="video-card" onclick="openVideo('VmdjHFpwNAI')">
       <iframe src="https://www.youtube.com/embed/VmdjHFpwNAI"></iframe>
-      <div class="video-info">
-        <h3>Outdoor Story</h3>
-      </div>
+      <div class="video-info"><h3>Outdoor Story</h3></div>
     </div>
 
   </div>
@@ -370,13 +353,13 @@ button{
 
     <div class="price-card">
       <h3>Quick Shoot</h3>
-      <p class="price">$300–$600</p>
+      <p class="price">$400+</p>
       <p>Short session, fast turnaround</p>
     </div>
 
     <div class="price-card">
       <h3>Half Day</h3>
-      <p class="price">$600–$1,200</p>
+      <p class="price">$750+</p>
       <p>Most popular option</p>
     </div>
 
